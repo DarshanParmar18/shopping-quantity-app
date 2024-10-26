@@ -127,6 +127,7 @@ export class ProductsComponent implements OnInit {
         name: product.name,
         price: product.price,
         quantity: this.quantity[product.id],
+        image: product.image,
       });
       product.availableQuantity -= this.quantity[product.id];
       this.quantity[product.id] = 1;

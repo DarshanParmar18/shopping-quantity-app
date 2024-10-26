@@ -5,6 +5,7 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  image?: string;
 }
 
 @Injectable({
@@ -22,7 +23,6 @@ export class CartService {
       }
       return [...items, item];
     });
-    console.log(this.cartItems());
     console.log(this.cartItems().map((f) => f.quantity));
   }
 
