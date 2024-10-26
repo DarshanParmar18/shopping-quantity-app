@@ -1,27 +1,82 @@
-# ShoppingQuantityApp
+# Shopping Quantity App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+This project is an Angular-based shopping quantity application that allows users to manage and validate product quantities during a shopping experience.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Quantity Management**
 
-## Code scaffolding
+   - Display available quantity for each product
+   - Allow users to input desired quantity to add to cart
+   - Default quantity set to 1
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Validation and Error Handling**
 
-## Build
+   - Display error message for invalid quantities (exceeding available stock or 0)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Confirmation and Pricing**
+   - Show pop-up window with added quantity and total price
+   - Update remaining quantity after adding to cart
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular 18.1.3
+- TypeScript
+- HTML5
+- CSS3 (with Tailwind CSS for styling)
 
-## Running end-to-end tests
+## Setup and Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository:
 
-## Further help
+   ```
+   git clone https://github.com/your-username/shopping-quantity-app.git
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. Navigate to the project directory:
+
+   ```
+   cd shopping-quantity-app
+   ```
+
+3. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+4. Run the development server:
+
+   ```
+   ng serve
+   ```
+
+5. Open your browser and visit `http://localhost:4200/`
+
+## Project Structure
+
+- `src/app/components/`: Contains all Angular components
+  - `header/`: Header component with cart button
+  - `products/`: Products list and individual product display
+  - `cart/`: Shopping cart modal
+- `src/app/services/`: Contains Angular services
+  - `cart.service.ts`: Manages cart operations
+- `src/assets/`: Contains static assets like images
+
+## Usage
+
+1. Browse the list of products displayed on the main page.
+2. For each product, you can see its name, description, price, and available quantity.
+3. Use the quantity input field to select the desired quantity.
+4. Click "Add to cart" to add the product to your shopping cart.
+5. If the quantity is invalid, an error message will be displayed.
+6. Click the cart icon in the header to view your cart contents.
+7. In the cart modal, you can see the list of added products, their quantities, and the total price.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
