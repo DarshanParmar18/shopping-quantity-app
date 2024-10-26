@@ -1,48 +1,59 @@
 @for (product of products; track product.id) {
 <div
-  class="container mx-auto my-5 py-5 w-full border border-slate-300 rounded-lg flex relative"
+  class="md:container lg:container mx-auto my-5 py-5 w-fullborder border-slate-300 rounded-lg flex flex-col md:flex-row relative"
 >
-  <div class="w-4/12">
+  <div class="w-full md:w-4/12 mb-4 md:mb-0">
     <img [src]="product.image" alt="product" class="w-8/12 mx-auto" />
   </div>
-  <div class="w-8/12 ml-5 flex flex-col gap-5">
-    <h3 class="text-2xl font-semibold">{{ product.name }}</h3>
-    <p>{{ product.description }}</p>
-    <div class="w-3/12 h-full flex flex-col gap-3">
-      <p class="text-slate-300 font-medium">
-        <span class="text-slate-900 text-3xl font-medium"
-          >${{ product.price }}
-        </span>
-        List Price :
-        <span class="line-through">${{ product.price + 100 }}</span>
+  <div class="w-full md:w-8/12 ml-0 md:ml-5 flex flex-col gap-5 p-3 sm:p-5">
+    <h3 class="text-xl md:text-2xl font-semibold">{{ product.name }}</h3>
+    <p class="text-sm md:text-base">{{ product.description }}</p>
+    <div class="w-full md:w-3/12 h-full flex flex-col gap-3">
+      <p class="text-slate-400 font-medium">
+        <span class="text-slate-900 text-2xl md:text-3xl font-medium"
+          >${{ product.price }}</span
+        >
+        <br class="md:hidden" />
+        <span class="text-sm md:text-base">
+          List Price:
+          <span class="line-through">${{ product.price + 100 }}</span></span
+        >
       </p>
-      <span>{{ product.availableQuantity }} items left</span>
+      <span class="text-sm md:text-base font-medium text-red-600"
+        >{{ product.availableQuantity }} items left</span
+      >
 
-      <div class="w-full">
-        <label for="quantity">Quantity</label>
+      <div class="w-full flex items-center">
+        <label for="quantity" class="text-sm md:text-base mr-2">Quantity</label>
         <input
           type="number"
           id="quantity"
           [(ngModel)]="quantity[product.id]"
           [min]="1"
           [max]="product.availableQuantity"
-          class="h-9 w-2/3 ml-5 border border-slate-300 rounded-md"
+          class="h-9 w-20 md:w-2/3 border border-slate-300 rounded-md"
         />
       </div>
       <button
         (click)="addToCart(product)"
-        class="border-2 border-green-500 rounded-md px-5 py-2 text-green-500 font-medium text-base hover:bg-green-500 hover:text-white transition-all duration-150"
+        data-modal-target="cart-modal"
+        data-modal-toggle="cart-modal"
+        class="border-2 border-green-500 rounded-md px-3 md:px-5 py-2 text-green-500 font-medium text-sm md:text-base hover:bg-green-500 hover:text-white transition-all duration-150"
       >
         Add to cart
       </button>
     </div>
   </div>
 
-  @if (product.availableQuantity <1 || quantity[product.id] >
-  product.availableQuantity ) {
-  <div class="border rounded-md p-3 bg-red-600 absolute right-10 bottom-20">
+  @if (product.availableQuantity < 1 || quantity[product.id] < 1 ||
+  quantity[product.id] > product.availableQuantity) {
+  <div
+    class="border rounded-md p-3 bg-red-600 text-white text-sm md:text-base absolute right-2 md:right-10 bottom-2 md:bottom-20"
+  >
     Requested quantity is not available
   </div>
   }
 </div>
 }
+
+<app-cart></app-cart>

@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CartComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
@@ -131,6 +132,8 @@ export class ProductsComponent implements OnInit {
       this.quantity[product.id] = 1;
       console.log(this.quantity);
       console.log(product.availableQuantity);
+    } else {
+      alert('Requested quantity is not available');
     }
   }
 }
