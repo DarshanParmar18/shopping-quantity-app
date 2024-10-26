@@ -72,11 +72,3 @@ This project is an Angular-based shopping quantity application that allows users
 5. If the quantity is invalid, an error message will be displayed.
 6. Click the cart icon in the header to view your cart contents.
 7. In the cart modal, you can see the list of added products, their quantities, and the total price.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.
